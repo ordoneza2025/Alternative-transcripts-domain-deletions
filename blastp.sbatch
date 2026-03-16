@@ -5,7 +5,7 @@
 
 ##General Settings
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=anor9792@colorado.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1
 #SBATCH --ntasks=16
 #SBATCH --mem=32gb
@@ -14,8 +14,8 @@
 
 ##Job name and output
 #SBATCH --job-name=balstp
-#SBATCH --output=/scratch/Users/anor9792/eofiles/%x.%j.out
-#SBATCH --error=/scratch/Users/anor9792/eofiles/%x.%j.err
+#SBATCH --output=%x.%j.out
+#SBATCH --error=%x.%j.err
 
 # Set variables
 evalue=1e-50
