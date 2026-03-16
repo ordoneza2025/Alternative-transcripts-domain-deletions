@@ -1,12 +1,14 @@
 
-## Example usage
-## blastp_output=. best_orfs_fasta=. swissprot_fasta=.  Submit job through slurm by running sbatch identifying_truncations.sbatch
-
 #Import programs requires to handle sequence info and carry out alignment
 from Bio import SeqIO
 from Bio.Align.Applications import MuscleCommandline
 import subprocess
 import os
+
+# Step 1: Parse BLASTp Output
+
+blastp_output = "mouse_tami_bestorfs_swissprot.txt"  # Input BLASTp output file
+parsed_blastp_file = "parsed_blastp.txt"  # Intermediate output file
 
 # Parse the BLASTp output file to extract query protein and SwissProt IDs
 with open(blastp_output, "r") as blastp_file, open(parsed_blastp_file, "w") as outfile:
@@ -20,7 +22,7 @@ with open(blastp_output, "r") as blastp_file, open(parsed_blastp_file, "w") as o
 
 # Step 2: Parse human and query sequences
 
-best_orfs_fasta = "human_bestorfs_swissprot.fasta"  # Query protein sequences
+best_orfs_fasta = "bestorfs_swissprot.fasta"  # Query protein sequences
 swissprot_fasta = "swissprot.fasta"  # Human protein sequences
 parsed_blastp_file = "parsed_blastp.txt"  # Input from step 1
 sequences_file = "sequences.txt"  # Output file for sequences
@@ -243,3 +245,9 @@ with open(merged_bed, "w") as outfile:
         # Write to file
         for ref_id, start, end, bp in merged:
             outfile.write(f"{ref_id}\t{start}\t{end}\t{bp}\n")
+
+
+
+
+
+
