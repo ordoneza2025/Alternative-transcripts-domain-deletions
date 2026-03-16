@@ -6,14 +6,14 @@
 ##General Settings
 #SBATCH --job-name=GTF_to_FASTA
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=anor9792@colorado.edu
+#SBATCH --mail-user=
 #SBATCH -N 1
 #SBATCH -n 16
 #SBATCH --mem=12gb
 #SBATCH --time=24:00:00
 #SBATCH --partition=short
-#SBATCH --output=/scratch/Users/anor9792/eofiles/%x.%j.out
-#SBATCH --error=/scratch/Users/anor9792/eofiles/%x.%j.err
+#SBATCH --output=%x.%j.out
+#SBATCH --error=%x.%j.err
 
 
 # Load Module
